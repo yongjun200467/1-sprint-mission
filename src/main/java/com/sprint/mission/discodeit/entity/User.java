@@ -9,6 +9,7 @@
 package com.sprint.mission.discodeit.entity;
 
 import java.util.UUID;
+
 //유저 정보 선언(필드)
 public class User {
     private final UUID ID;
