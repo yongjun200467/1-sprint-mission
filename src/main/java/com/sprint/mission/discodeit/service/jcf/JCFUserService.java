@@ -4,7 +4,6 @@ package com.sprint.mission.discodeit.service.jcf;
 
 import com.sprint.mission.discodeit.entity.User;
 import com.sprint.mission.discodeit.service.UserService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -31,7 +30,7 @@ public class JCFUserService implements UserService {
 
     //다건조회
     @Override
-    public List<User> findAll(   ) {
+    public List<User> findAll() {
         return new ArrayList<>(users);
     }
 
