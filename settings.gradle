@@ -1,0 +1,3 @@
+rootProject.name = '1-sprint-mission'
+include 'src:main:mission2'
+include 'service'
