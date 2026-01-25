@@ -3,9 +3,10 @@ package com.sprint.mission.discodeit.entity;
 import com.sprint.mission.discodeit.service.ChannelService;
 
 import java.util.UUID;
+import java.io.Serializable;
 
-public class Channel {
-
+public class Channel implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final UUID id;
     private String name;
     private ChannelType type;

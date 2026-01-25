@@ -7,8 +7,10 @@
 package com.sprint.mission.discodeit.entity;
 
 import java.util.UUID;
+import java.io.Serializable;
 
-public class Message {
+public class Message implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final UUID Id;
     private String content;
     private final UUID userId;
@@ -35,5 +37,4 @@ public class Message {
         if(content != null) this.content = content;
         this.updatedAt = System.currentTimeMillis();
     }
-
 }

@@ -1,19 +1,20 @@
 package com.sprint.mission.discodeit;
-import com.sprint.mission.discodeit.entity.User;
+
 import com.sprint.mission.discodeit.entity.Channel;
 import com.sprint.mission.discodeit.entity.ChannelType;
 import com.sprint.mission.discodeit.entity.Message;
-import com.sprint.mission.discodeit.service.UserService;
+import com.sprint.mission.discodeit.entity.User;
 import com.sprint.mission.discodeit.service.ChannelService;
 import com.sprint.mission.discodeit.service.MessageService;
-import com.sprint.mission.discodeit.service.jcf.JCFUserService;
-import com.sprint.mission.discodeit.service.jcf.JCFChannelService;
-import com.sprint.mission.discodeit.service.jcf.JCFMessageService;
+import com.sprint.mission.discodeit.service.UserService;
+import com.sprint.mission.discodeit.service.file.FileChannelService;
+import com.sprint.mission.discodeit.service.file.FileMessageService;
+import com.sprint.mission.discodeit.service.file.FileUserService;
 
 import java.util.List;
-import java.util.UUID;
 
 public class JavaApplication {
+
     static void userCRUDTest(UserService userService) {
         System.out.println("------------------------------------------------------------");
         // 생성
@@ -45,7 +46,7 @@ public class JavaApplication {
         userService.delete(user.getId());
         List<User> foundUsersAfterDelete = userService.findAll();
         System.out.println("유저 삭제: " + foundUsersAfterDelete.size());
-        System.out.println("------------------------------------------------------------\n\n");
+        System.out.println("------------------------------------------------------------\n\n\n");
     }
 
 
@@ -78,15 +79,13 @@ public class JavaApplication {
         channelService.delete(channel.getId());
         List<Channel> foundChannelsAfterDelete = channelService.findAll();
         System.out.println("채널 삭제: " + foundChannelsAfterDelete.size());
-        System.out.println("------------------------------------------------------------\n\n");
+        System.out.println("------------------------------------------------------------\n\n\n");
     }
 
 
-    static void messageCRUDTest(MessageService messageService) {
+    static void messageCRUDTest(MessageService messageService, User user, Channel channel) {
         // 생성
-        UUID userId = UUID.randomUUID();
-        UUID channelId = UUID.randomUUID();
-        Message message = messageService.create(userId, channelId, "안녕하세요.");
+        Message message = messageService.create(user.getId(), channel.getId(), "안녕하세요.");
         System.out.println("메시지 생성: " + message.getId());
         System.out.println("메세지 생성 시간 -  " + message.getCreatedAt());
         System.out.println("메시지 내용: " + message.getContent());
@@ -113,16 +112,35 @@ public class JavaApplication {
         System.out.println("메시지 삭제: " + foundMessagesAfterDelete.size());
     }
 
+    static User setupUser(UserService userService) {
+        User user = userService.create("woody", "woody@codeit.com", "woody1234");
+        return user;
+    }
+
+    static Channel setupChannel(ChannelService channelService) {
+        Channel channel = channelService.create("공지", ChannelType.공지);
+        return channel;
+    }
+
+    static void messageCreateTest(MessageService messageService, Channel channel, User author) {
+        Message message = messageService.create(author.getId(), channel.getId(), "안녕하세요.");
+        System.out.println("메시지 생성: " + message.getId());
+    }
 
     public static void main(String[] args) {
         // 서비스 초기화
-        UserService userService = new JCFUserService();
-        ChannelService channelService = new JCFChannelService();
-        MessageService messageService = new JCFMessageService();
+        UserService userService = new FileUserService();
+        ChannelService channelService = new FileChannelService();
+        MessageService messageService = new FileMessageService(channelService, userService);
 
         // 테스트
         userCRUDTest(userService);
         channelCRUDTest(channelService);
-        messageCRUDTest(messageService);
+
+//        // 셋업
+        User user = setupUser(userService);
+        Channel channel = setupChannel(channelService);
+//        // 테스트
+       messageCreateTest(messageService, channel, user);
     }
 }

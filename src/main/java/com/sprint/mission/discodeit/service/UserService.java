@@ -10,17 +10,12 @@ public interface UserService {
 
     //등록
     User create(String username, String mail, String phone);
-
     //조회(단건)
     User find(UUID id);
-
     //(다건)
     List<User> findAll();
-
     //수정
     User updated(UUID id, String username, String email, String phone);
-
     //삭제
     void delete(UUID id);
-
 }
