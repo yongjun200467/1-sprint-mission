@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1-sprint-mission.iml" filepath="$PROJECT_DIR$/1-sprint-mission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1-sprint-mission.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1-sprint-mission.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service/1-sprint-mission.service.iml" filepath="$PROJECT_DIR$/.idea/modules/service/1-sprint-mission.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service/1-sprint-mission.service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/service/1-sprint-mission.service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service/1-sprint-mission.service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/service/1-sprint-mission.service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/1-sprint-mission.src.iml" filepath="$PROJECT_DIR$/.idea/modules/src/1-sprint-mission.src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/main/1-sprint-mission.src.main.iml" filepath="$PROJECT_DIR$/.idea/modules/src/main/1-sprint-mission.src.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/main/mission2/1-sprint-mission.src.main.mission2.iml" filepath="$PROJECT_DIR$/.idea/modules/src/main/mission2/1-sprint-mission.src.main.mission2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/main/mission2/1-sprint-mission.src.main.mission2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/src/main/mission2/1-sprint-mission.src.main.mission2.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/src/main/mission2/1-sprint-mission.src.main.mission2.test.iml" filepath="$PROJECT_DIR$/.idea/modules/src/main/mission2/1-sprint-mission.src.main.mission2.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1-sprint-mission.test.iml" filepath="$PROJECT_DIR$/.idea/modules/1-sprint-mission.test.iml" />
+    </modules>
+  </component>
+</project>
